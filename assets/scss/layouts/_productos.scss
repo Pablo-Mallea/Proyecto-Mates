@@ -9,7 +9,11 @@
 
 }
 .cards{
-    @include flex-row-between;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-row-gap: 20px;
+    justify-content: space-between;
     .card{
         width: 200px;
         height: 300px;
@@ -17,5 +21,41 @@
         border-radius: 15px;
         background-color: #fff;
         filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
+
+        .foto_producto{
+            width: 100%;
+            height: 175px;
+            .imagen{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .card_body{
+            margin-top: 5px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            input{
+                width: 75px;
+                height: 30px;
+                border: none;
+                background-color: #eee;
+                border-radius: 5px;
+            }
+
+            button{
+                width: 75px;
+                height: 30px;
+                margin-top: 5px;
+                color: #fff;
+                border: none;
+                background-color: map-get($colors, detalles );
+                border-radius: 5px;
+            }
+            
+        }
     }
 }

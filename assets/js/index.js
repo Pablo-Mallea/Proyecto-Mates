@@ -1,5 +1,5 @@
 // Desafio Incorporando Eventos
-
+/* 
 class Producto {
     constructor(id, nombre, precio) {
         this.id = id;
@@ -138,4 +138,38 @@ function calculo() {
             location.reload();
         }
     }
+} */
+
+let contenedor_productos = document.getElementById("productos")
+let contenedor_carrito = document.getElementById("carrito")
+let productos_carrito = [];
+
+//Funciones que llamo
+cargoProductos();
+
+//Cargo los productos
+
+function cargoProductos () {
+    productos.forEach(productos => {
+        contenedor_productos.innerHTML += `
+        <div class="card">
+            <div class="foto_producto">
+                <img class="imagen" src="${productos.imagen}">
+            </div>
+            <div class="card_body">
+                <p>${productos.name}</p>
+                <p>$ ${productos.precio}</P>
+                <div>
+                    <input id="cant1" type="number" placeholder="Cantidad...">
+                    <button id="btn1" type="click" value="">Comprar</button>
+                </div>
+            </div>
+            
+        </div>
+            `
+    });
+}
+
+function muestroProductos ()= {
+    
 }
