@@ -1,155 +1,28 @@
-// Desafio Incorporando Eventos
-/* 
-class Producto {
-    constructor(id, nombre, precio) {
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-    }
-
-}
-const productos = [];
-
-productos.push(new Producto(1, "Mate-1", 1000));
-productos.push(new Producto(2, "Mate-2", 1500));
-productos.push(new Producto(3, "Mate-3", 2000));
-
-console.log(productos)
-
-const id = productos.map((el) => el.id);
-console.log(id)
-const nombres = productos.map((el) => el.nombre);
-console.log(nombres)
-const precios = productos.map((el) => el.precio);
-console.log(precios)
-
-const seleccion = []; //Productos que selecciona
-const cant = []; //Cantidad de ellos
-
-
-let carrito = document.getElementById("compras")
-let total = 0;
-
-
-let btn1 = document.getElementById("btn1");
-btn1.onclick = () => {
-    let cant1 = document.getElementById("cant1").value;
-
-    if (cant1 > 0) {
-        cant.push(cant1)
-        console.log(cant)
-        seleccion.push(1);
-        console.log(seleccion)
-
-        contenedor = document.createElement("li");
-        contenedor.innerHTML = `${productos[0].nombre} $${productos[0].precio} x${cant[cant.length-1]}`;
-        carrito.appendChild(contenedor);
-    }
-
-}
-
-let btn2 = document.getElementById("btn2")
-
-btn2.onclick = () => {
-    let cant2 = document.getElementById("cant2").value;
-
-    if (cant2 > 0) {
-        cant.push(cant2)
-        console.log(cant)
-        seleccion.push(2);
-        console.log(seleccion)
-
-        contenedor = document.createElement("li");
-        contenedor.innerHTML = `${productos[1].nombre} $${productos[1].precio} x${cant[cant.length-1]}`;
-        carrito.appendChild(contenedor);
-    }
-
-}
-
-let btn3 = document.getElementById("btn3")
-btn3.onclick = () => {
-    let cant3 = 0;
-    cant3 = document.getElementById("cant3").value;
-
-    if (cant3 > 0) {
-        cant.push(cant3)
-        console.log(cant)
-        seleccion.push(3);
-        console.log(seleccion)
-
-        contenedor = document.createElement("li");
-        contenedor.innerHTML = `${productos[2].nombre} $${productos[2].precio} x${cant[cant.length-1]}`;
-        carrito.appendChild(contenedor);
-    }
-
-}
-
-let calcular = document.getElementById("calcular");
-calcular.addEventListener("click", calculo);
-let resultado = 0;
-let cuotas = 0;
-
-function calculo() {
-    const lleva = [];
-
-    for (let i = 0; i <= seleccion.length; i++) {
-        for (let j = 0; j < productos.length; j++) {
-            if (seleccion[i] == id[j]) {
-                lleva[i] = productos.find((el) => el.id === id[j]);
-            }
-        }
-    }
-    console.log(lleva);
-
-
-    for (i = 0; i <= seleccion.length; i++) {
-        for (let j = 0; j < productos.length; j++) {
-            if (seleccion[i] == id[j]) {
-                resultado = cant[i] * precios[j] + resultado;
-            }
-        }
-    }
-    console.log(resultado)
-
-    if (resultado > 0) {
-        contenedor = document.createElement("p");
-        contenedor.innerHTML = `Total: $${resultado}`;
-        carrito.appendChild(contenedor);
-    
-        let pagar = document.getElementById("pagar")
-        if (resultado > 0) {
-            pagar.onclick = () => {
-                cuotas = document.getElementById("cuotas").value;
-                console.log(cuotas)
-    
-                cu = resultado / cuotas;
-                console.log(cu)
-                cu = cu.toFixed(2)
-    
-                contenedor = document.createElement("p")
-                contenedor.innerHTML = `<p>Total $${resultado} en ${cuotas} cuotas de $ ${cu}</p>`
-                pago.appendChild(contenedor)
-    
-            }
-    
-        }
-        let borrar = document.getElementById("limpiar");
-        borrar.onclick = () => {
-            location.reload();
-        }
-    }
-} */
+//Entrega Final 2
 
 let contenedor_productos = document.getElementById("productos")
 let contenedor_carrito = document.getElementById("carrito")
-let productos_carrito = [];
+let carrito = [];
+console.log(carrito)
 
 //Funciones que llamo
+cargarCarrito();
+mostrarCarrito();
 cargoProductos();
 
-//Cargo los productos
+//Cargo los productos del localStorage
+function cargarCarrito() {
+    if (localStorage.getItem("StorageProductos") !== null) {
+        carrito = JSON.parse(localStorage.getItem("StorageProductos"));
+        return;
+    } else {
+        localStorage.setItem("StorageFavoritos", JSON.stringify(carrito));
+        return;
+    }
+}
 
-function cargoProductos () {
+//Cargo los productos
+function cargoProductos() {
     productos.forEach(productos => {
         contenedor_productos.innerHTML += `
         <div class="card">
@@ -159,9 +32,8 @@ function cargoProductos () {
             <div class="card_body">
                 <p>${productos.name}</p>
                 <p>$ ${productos.precio}</P>
-                <div>
-                    <input id="cant1" type="number" placeholder="Cantidad...">
-                    <button id="btn1" type="click" value="">Comprar</button>
+                <div class="flex-row">
+                    <button class="btn-comprar" onClick="seleccionProductos(${productos.id})">Comprar</button>
                 </div>
             </div>
             
@@ -170,6 +42,91 @@ function cargoProductos () {
     });
 }
 
-function muestroProductos ()= {
-    
+//Agrego los productos seleccionados al carrito
+
+function seleccionProductos(id_seleccionado) {
+    let indice = id_seleccionado - 1;
+
+    let objeto_seleccionado = {};
+    objeto_seleccionado = productos[indice];
+    console.log(objeto_seleccionado);
+
+    carrito.push(objeto_seleccionado);
+    console.log(carrito)
+
+    localStorage.setItem("StorageProductos", JSON.stringify(carrito));
+    location.reload()
+
+}
+
+//Muestro los productos del carrito
+function mostrarCarrito() {
+    carrito.forEach((carrito) => {
+        contenedor_carrito.innerHTML += `
+        <div class="cards_carrito">
+            <div class="info_producto">
+                <div class="foto_carrito">
+                    <img class="imagen" src="${carrito.imagen}">
+                </div>
+                <p>${carrito.name}</p>
+                <p>$ ${carrito.precio}</P>
+            </div>
+            <div class="eliminar">
+                <button onClick="eliminar_producto(${carrito.id})" class="btn-eliminar">Eliminar</button>
+            </div>
+            
+        </div>
+        `
+    });
+}
+//Elimino productos del carrito
+function eliminar_producto(id_seleccionado) {
+    let eliminar = carrito.filter((e) => e.id != id_seleccionado)
+    carrito = eliminar;
+    localStorage.setItem("StorageProductos", JSON.stringify(carrito))
+    location.reload();
+}
+console.log(carrito)
+
+
+//Calculo los productos
+let calcular = document.getElementById("calcular");
+
+let resultado = 0;
+let cuotas = 0;
+
+calcular.onclick = () => {
+    for (let i = 0; i < carrito.length; i++) {
+        resultado = carrito[i].precio + resultado;
+    }
+    console.log(resultado)
+    let calculo = document.getElementById("calculo")
+    calculo.innerHTML = `
+        <p>$ ${resultado}</p>
+
+    `
+    cuenta = resultado;
+    resultado = 0;
+
+}
+
+limpiar.onclick = () => {
+    calculo.innerHTML = `$ `
+}
+let pagar = document.getElementById("pagar")
+
+pagar.onclick = () => {
+    let cuotas = 0;
+
+    cuotas = document.getElementById("cuotas").value;
+    contenedor_cuotas =document.getElementById("contenedor_cuotas");
+
+    console.log(cuotas)
+    if (cuotas > 0 && cuenta > 0)  {
+        cu = cuenta / cuotas;
+        console.log(cu)
+        cu = cu.toFixed(2)
+
+        contenedor_cuotas.innerHTML = `<p>Total $${cuenta} en ${cuotas} cuotas de $ ${cu}</p>`
+    }
 }

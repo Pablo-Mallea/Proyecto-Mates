@@ -25,16 +25,13 @@
                         <a href="#nuestros">Nuestros mates</a>
                     </li>
                     <li>
-                        <a href="#mate">Como hacer un buen mate</a>
-                    </li>
-                    <li>
                         <a href="#contacto">Contacto</a>
                     </li>
         
                 </ul>
             </nav>
             <div class="title">
-                <h1>Los mates de Tito</h1>
+                <h1>Mates</h1>
             </div>
         </div>
         
@@ -49,46 +46,32 @@
         </section>
         <section>
             <h2>Carrito</h2>
-            <div id="carrito">
+            <div id="carrito" class="productos_carrito">
 
             </div>
-            <div id="calculo">
-                <button id="calcular" type="click">Calcular</button>
-                <button id="limpiar" type="click">Limpiar</button>
-            </div>
-            <div id="pago">
-                <p>Selecciona la cantidad de cuotas</p>
-                <input id="cuotas" type="number" placeholder="1 2 3...">
-                <button type="click" id="pagar">Pagar</button>
-            </div>
-        </section>
-        <!-- <section id="nuestros">
-            <h2>Nuestros mates</h2>
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, facere! Tempore qui dolor, nemo dolore iure in harum officia quasi! Fuga nulla quibusdam ipsa vero velit harum cum ducimus placeat.</p>
-            </div>
-            <div>
-                <img src="" alt="">
-            </div>
-        </section>
-        <section id="mate">
-            <h2>Como hacer un buen mate</h2>
-        </section>
-        <section id="contacto">
-            <h2>Contacto</h2>
             
-        </section> -->
-
+            <div class="total">
+                <div id="calculo">
+                
+                </div>
+                <button id="calcular" type="click" class="btn-calculo">Calcular</button>
+                <button id="limpiar" type="click" class="btn-calculo">Limpiar</button>
+            </div>
+            <div id="pago" class="cuotas">
+                <p>Selecciona la cantidad de cuotas</p>
+                <div>
+                    <input id="cuotas" type="number" placeholder="1 2 3...">
+                    <button type="click" id="pagar" class="btn-pagar">Pagar</button>
+                </div>
+            </div>
+            <div id="contenedor_cuotas">
+            </div>
+        </section>
 
     </main>
     <footer>
 
     </footer>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-    </script>
 
     <script src="./assets/js/index.js"></script>
 </body>

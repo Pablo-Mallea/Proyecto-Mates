@@ -9,6 +9,7 @@
 @import "utilities/mixins";
 @import "utilities/colors";
 @import "layouts/productos";
+@import "layouts/carrito";
 
 body {
     background-color: map-get($colors, bg);
@@ -22,6 +23,7 @@ ul li {
         text-decoration: none;
         color: map-get($colors, detalles);
     }
+    
 }
 
 header {
@@ -69,6 +71,7 @@ main {
 
     h2{
         @include flex-row-center;
+        padding: 20px 0 20px 0;
     }
     
     

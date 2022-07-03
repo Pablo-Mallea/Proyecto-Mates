@@ -18,15 +18,6 @@
     grid-template-rows: auto auto 100px;
     grid-template-columns: auto; } }
 
-.filtros {
-  display: inline-block;
-  width: 200px;
-  height: auto;
-  padding: 10px;
-  border-radius: 15px;
-  background-color: #fff;
-  filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25)); }
-
 .cards {
   width: 100%;
   display: grid;
@@ -35,7 +26,7 @@
   justify-content: space-between; }
   .cards .card {
     width: 200px;
-    height: 300px;
+    height: auto;
     padding: 10px;
     border-radius: 15px;
     background-color: #fff;
@@ -46,27 +37,109 @@
       .cards .card .foto_producto .imagen {
         width: 100%;
         height: 100%;
-        object-fit: cover; }
+        object-fit: cover;
+        border-radius: 10px; }
     .cards .card .card_body {
       margin-top: 5px;
       height: auto;
       display: flex;
       flex-direction: column;
-      justify-content: space-between; }
-      .cards .card .card_body input {
-        width: 75px;
-        height: 30px;
-        border: none;
-        background-color: #eee;
-        border-radius: 5px; }
-      .cards .card .card_body button {
-        width: 75px;
-        height: 30px;
-        margin-top: 5px;
-        color: #fff;
-        border: none;
-        background-color: #6B9080;
-        border-radius: 5px; }
+      justify-content: space-evenly; }
+      .cards .card .card_body p {
+        margin-top: 5px; }
+      .cards .card .card_body .flex-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        /* .btn-comprar:hover {
+                    background-color: ;
+                    
+                } */ }
+        .cards .card .card_body .flex-row .btn-comprar {
+          width: 75px;
+          height: 30px;
+          color: #fff;
+          border: none;
+          background-color: #90be6d;
+          border-radius: 5px; }
+
+.productos_carrito {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  .productos_carrito .cards_carrito {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: #fff;
+    filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25)); }
+    .productos_carrito .cards_carrito .info_producto {
+      width: 200px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center; }
+      .productos_carrito .cards_carrito .info_producto .foto_carrito {
+        width: 50px;
+        height: 50px;
+        border-radius: 7px; }
+        .productos_carrito .cards_carrito .info_producto .foto_carrito .imagen {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px; }
+    .productos_carrito .cards_carrito .btn-eliminar {
+      width: 75px;
+      height: 30px;
+      color: #fff;
+      border: none;
+      background-color: #e63946;
+      border-radius: 5px; }
+
+.total {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: end; }
+  .total .btn-calculo {
+    width: 75px;
+    height: 30px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 15px; }
+
+.cuotas {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px; }
+  .cuotas input {
+    width: 75px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff; }
+  .cuotas .btn-pagar {
+    width: 75px;
+    height: 30px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 15px; }
 
 body {
   background-color: #eee;
@@ -76,7 +149,7 @@ ul li {
   list-style-type: none; }
   ul li a {
     text-decoration: none;
-    color: #6B9080; }
+    color: #90be6d; }
 
 header {
   grid-area: header;
@@ -118,7 +191,8 @@ main {
   main h2 {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center; }
+    justify-content: center;
+    padding: 20px 0 20px 0; }
 
 footer {
   grid-area: footer;
