@@ -158,7 +158,7 @@ header {
   color: #fff; }
   header .portada {
     width: auto;
-    background: rgba(0, 0, 0, 0.5) url("/assets/img/_DSC0212.JPG");
+    background: rgba(0, 0, 0, 0.5) url("../img/portada.JPG");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
