@@ -12,13 +12,8 @@ cargoProductos();
 
 //Cargo los productos del localStorage
 function cargarCarrito() {
-    if (localStorage.getItem("StorageProductos") !== null) {
-        carrito = JSON.parse(localStorage.getItem("StorageProductos"));
-        return;
-    } else {
-        localStorage.setItem("StorageFavoritos", JSON.stringify(carrito));
-        return;
-    }
+
+    carrito = JSON.parse(localStorage.getItem("StorageProductos")) || localStorage.setItem("StorageProductos", JSON.stringify(carrito));
 }
 
 //Cargo los productos
@@ -33,23 +28,24 @@ function cargoProductos() {
                 <p>${productos.name}</p>
                 <p>$ ${productos.precio}</P>
                 <div class="flex-row">
+                    
                     <button class="btn-comprar" onClick="seleccionProductos(${productos.id})">Comprar</button>
                 </div>
             </div>
             
         </div>
-            `
+        `
     });
 }
 
 //Agrego los productos seleccionados al carrito
+let cantidad = [];
 
 function seleccionProductos(id_seleccionado) {
     let indice = id_seleccionado - 1;
 
     let objeto_seleccionado = {};
     objeto_seleccionado = productos[indice];
-    console.log(objeto_seleccionado);
 
     carrito.push(objeto_seleccionado);
     console.log(carrito)
@@ -96,6 +92,7 @@ let resultado = 0;
 let cuotas = 0;
 
 calcular.onclick = () => {
+
     for (let i = 0; i < carrito.length; i++) {
         resultado = carrito[i].precio + resultado;
     }
@@ -111,18 +108,18 @@ calcular.onclick = () => {
 }
 
 limpiar.onclick = () => {
-    calculo.innerHTML = `$ `
+    location.reload();
 }
-let pagar = document.getElementById("pagar")
 
+let pagar = document.getElementById("pagar")
 pagar.onclick = () => {
     let cuotas = 0;
 
     cuotas = document.getElementById("cuotas").value;
-    contenedor_cuotas =document.getElementById("contenedor_cuotas");
+    contenedor_cuotas = document.getElementById("contenedor_cuotas");
 
     console.log(cuotas)
-    if (cuotas > 0 && cuenta > 0)  {
+    if (cuotas > 0 && cuenta > 0) {
         cu = cuenta / cuotas;
         console.log(cu)
         cu = cu.toFixed(2)

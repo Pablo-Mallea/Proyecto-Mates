@@ -7,14 +7,14 @@
 @media (min-width: 300px) and (max-width: 991px) {
   #grid {
     display: grid;
-    grid-template-areas: "header" "main" "footer";
+    grid-template-areas: "header" "main" "footer";
     grid-template-rows: auto;
     grid-template-columns: auto; } }
 
 @media (min-width: 992px) {
   #grid {
     display: grid;
-    grid-template-areas: "header" "main" "footer";
+    grid-template-areas: "header" "main" "footer";
     grid-template-rows: auto auto 100px;
     grid-template-columns: auto; } }
 
@@ -50,11 +50,17 @@
       .cards .card .card_body .flex-row {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: space-evenly;
+        margin-top: 5px;
         /* .btn-comprar:hover {
                     background-color: ;
                     
                 } */ }
+        .cards .card .card_body .flex-row input {
+          width: 75px;
+          height: 30px;
+          border: none;
+          border-radius: 5px; }
         .cards .card .card_body .flex-row .btn-comprar {
           width: 75px;
           height: 30px;
@@ -82,7 +88,7 @@
     background-color: #fff;
     filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25)); }
     .productos_carrito .cards_carrito .info_producto {
-      width: 200px;
+      width: 250px;
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
