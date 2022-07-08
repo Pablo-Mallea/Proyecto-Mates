@@ -7,14 +7,14 @@
 @media (min-width: 300px) and (max-width: 991px) {
   #grid {
     display: grid;
-    grid-template-areas: "header" "main" "footer";
+    grid-template-areas: "header" "main" "footer";
     grid-template-rows: auto;
     grid-template-columns: auto; } }
 
 @media (min-width: 992px) {
   #grid {
     display: grid;
-    grid-template-areas: "header" "main" "footer";
+    grid-template-areas: "header" "main" "footer";
     grid-template-rows: auto auto 100px;
     grid-template-columns: auto; } }
 

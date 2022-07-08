@@ -22,12 +22,11 @@
                         <a href="#productos">Productos</a>
                     </li>
                     <li>
-                        <a href="#nuestros">Nuestros mates</a>
+                        <a href="#carrito">Carrito</a>
                     </li>
                     <li>
                         <a href="#contacto">Contacto</a>
                     </li>
-        
                 </ul>
             </nav>
             <div class="title">
@@ -43,9 +42,10 @@
             <div class="seccion_productos">
                 <div class="filtros">
                     <h3>Filtros</h3>
+                    <button id="btn-todos" class="btn-filtro">Todos</button>
                     <button id="btn-mates" class="btn-filtro">Mates</button>
-                    <button id="btn-Yerba" class="btn-filtro">Yerba</button>
-                    <button id="btn-Bombilla" class="btn-filtro">Bombilla</button>
+                    <button id="btn-yerba" class="btn-filtro">Yerba</button>
+                    <button id="btn-bombilla" class="btn-filtro">Bombilla</button>
                 </div>
                 <div id="productos" class="cards"></div>
             </div>
@@ -79,6 +79,8 @@
 
     </footer>
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <script src="./assets/js/index.js"></script>
 </body>
 
