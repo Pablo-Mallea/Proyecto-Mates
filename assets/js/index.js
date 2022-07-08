@@ -28,7 +28,7 @@ function cargoProductos() {
                 <p>${productos.name}</p>
                 <p>$ ${productos.precio}</P>
                 <div class="flex-row">
-                    
+                    <input type="numero" id="cant${productos.id}" placeholder="Cantididad..."> 
                     <button class="btn-comprar" onClick="seleccionProductos(${productos.id})">Comprar</button>
                 </div>
             </div>
@@ -39,20 +39,44 @@ function cargoProductos() {
 }
 
 //Agrego los productos seleccionados al carrito
-let cantidad = [];
 
 function seleccionProductos(id_seleccionado) {
+    let cant1 = document.getElementById("cant1").value;
+    
+    let cant2 = document.getElementById("cant2").value;
+    
+    let cant3 = document.getElementById("cant3").value;
+    
+    let cant4 = document.getElementById("cant4").value;
+    
+    let cant5 = document.getElementById("cant5").value;
+    console.log(cant5);
+    let cant6 = document.getElementById("cant6").value;
+    console.log(cant6);
+    
+    cant1 > 0 ? cantidad = cant1 : false
+    cant2 > 0 ? cantidad = cant2 : false
+    cant3 > 0 ? cantidad = cant3 : false
+    cant4 > 0 ? cantidad = cant4 : false
+    cant5 > 0 ? cantidad = cant5 : false
+    cant6 > 0 ? cantidad = cant6 : false
+
     let indice = id_seleccionado - 1;
 
     let objeto_seleccionado = {};
-    objeto_seleccionado = productos[indice];
+    objeto_seleccionado = {
+        ...productos[indice],
+        cantidad: cantidad
+    }
 
-    carrito.push(objeto_seleccionado);
-    console.log(carrito)
+    if (!carrito.some((el) => el.id == id_seleccionado)) { //Sino existe el producto en el carrito lo agrego
 
-    localStorage.setItem("StorageProductos", JSON.stringify(carrito));
-    location.reload()
+        carrito.push(objeto_seleccionado);
+        console.log(carrito)
+        localStorage.setItem("StorageProductos", JSON.stringify(carrito));
+        location.reload()
 
+    }
 }
 
 //Muestro los productos del carrito
@@ -66,6 +90,7 @@ function mostrarCarrito() {
                 </div>
                 <p>${carrito.name}</p>
                 <p>$ ${carrito.precio}</P>
+                <p> x${carrito.cantidad}</p>
             </div>
             <div class="eliminar">
                 <button onClick="eliminar_producto(${carrito.id})" class="btn-eliminar">Eliminar</button>
@@ -94,7 +119,7 @@ let cuotas = 0;
 calcular.onclick = () => {
 
     for (let i = 0; i < carrito.length; i++) {
-        resultado = carrito[i].precio + resultado;
+        resultado = carrito[i].precio*carrito[i].cantidad + resultado;
     }
     console.log(resultado)
     let calculo = document.getElementById("calculo")

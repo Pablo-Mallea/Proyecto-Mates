@@ -40,14 +40,20 @@
     <main>
         <section>
             <h2>Productos</h2>
-            <div id="productos" class="cards">
-    
+            <div class="seccion_productos">
+                <div class="filtros">
+                    <h3>Filtros</h3>
+                    <button id="btn-mates" class="btn-filtro">Mates</button>
+                    <button id="btn-Yerba" class="btn-filtro">Yerba</button>
+                    <button id="btn-Bombilla" class="btn-filtro">Bombilla</button>
+                </div>
+                <div id="productos" class="cards"></div>
             </div>
         </section>
         <section>
             <h2>Carrito</h2>
             <div id="carrito" class="productos_carrito">
-
+                
             </div>
             
             <div class="total">
@@ -61,7 +67,7 @@
                 <p>Selecciona la cantidad de cuotas</p>
                 <div>
                     <input id="cuotas" type="number" placeholder="1 2 3...">
-                    <button type="click" id="pagar" class="btn-pagar">Pagar</button>
+                    <button id="pagar" class="btn-pagar">Pagar</button>
                 </div>
             </div>
             <div id="contenedor_cuotas">
