@@ -40,13 +40,13 @@ function cargoProductos() {
 //Agrego los productos seleccionados al carrito
 
 function seleccionProductos(id_seleccionado) {
-    (document.getElementById("cant1")) ? cant1 = document.getElementById("cant1").value : cant1 = 0;
-    (document.getElementById("cant2")) ? cant2 = document.getElementById("cant2").value : cant2 = 0;
-    (document.getElementById("cant3")) ? cant3 = document.getElementById("cant3").value : cant3 = 0; 
-    (document.getElementById("cant4")) ? cant4 = document.getElementById("cant4").value : cant4 = 0;
-    (document.getElementById("cant5")) ? cant5 = document.getElementById("cant5").value : cant5 = 0;
-    (document.getElementById("cant6")) ? cant6 = document.getElementById("cant6").value : cant6 = 0;
-    
+    (document.getElementById("cant1")) ? cant1 = document.getElementById("cant1").value: cant1 = 0;
+    (document.getElementById("cant2")) ? cant2 = document.getElementById("cant2").value: cant2 = 0;
+    (document.getElementById("cant3")) ? cant3 = document.getElementById("cant3").value: cant3 = 0;
+    (document.getElementById("cant4")) ? cant4 = document.getElementById("cant4").value: cant4 = 0;
+    (document.getElementById("cant5")) ? cant5 = document.getElementById("cant5").value: cant5 = 0;
+    (document.getElementById("cant6")) ? cant6 = document.getElementById("cant6").value: cant6 = 0;
+
     cant1 > 0 ? cantidad = +(cant1) : false
     cant2 > 0 ? cantidad = +(cant2) : false
     cant3 > 0 ? cantidad = +(cant3) : false
@@ -62,12 +62,12 @@ function seleccionProductos(id_seleccionado) {
         cantidad: cantidad
     }
     console.log(objeto_seleccionado)
-    if (!carrito.some((el) => el.id == id_seleccionado)) {    //Sino existe el producto en el carrito lo agrego
+    if (!carrito.some((el) => el.id == id_seleccionado)) { //Sino existe el producto en el carrito lo agrego
 
         carrito.push(objeto_seleccionado);
         console.log(carrito)
         localStorage.setItem("StorageProductos", JSON.stringify(carrito));
-        
+
         Toastify({ //Libreria toastify
             text: "Producto agregado al carrito",
             duration: 2000,
@@ -116,7 +116,7 @@ function eliminar_producto(id_seleccionado) {
     let eliminar = carrito.filter((e) => e.id != id_seleccionado)
     carrito = eliminar;
     localStorage.setItem("StorageProductos", JSON.stringify(carrito))
-    
+
     Toastify({ //Libreria toastify
         text: "Producto eliminado del carrito",
         duration: 1500,
