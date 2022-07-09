@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./assets/js/productos.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Mates</title>
 </head>
@@ -22,12 +23,11 @@
                         <a href="#productos">Productos</a>
                     </li>
                     <li>
-                        <a href="#nuestros">Nuestros mates</a>
+                        <a href="#carrito">Carrito</a>
                     </li>
                     <li>
                         <a href="#contacto">Contacto</a>
                     </li>
-        
                 </ul>
             </nav>
             <div class="title">
@@ -40,28 +40,36 @@
     <main>
         <section>
             <h2>Productos</h2>
-            <div id="productos" class="cards">
-    
+            <div class="seccion_productos">
+                <div class="filtros">
+                    <h3>Filtros</h3>
+                    <button id="btn-todos" class="btn-filtro">Todos</button>
+                    <button id="btn-mates" class="btn-filtro">Mates</button>
+                    <button id="btn-yerba" class="btn-filtro">Yerba</button>
+                    <button id="btn-bombilla" class="btn-filtro">Bombilla</button>
+                </div>
+                <div id="productos" class="cards"></div>
+                
             </div>
         </section>
         <section>
             <h2>Carrito</h2>
             <div id="carrito" class="productos_carrito">
-
+                
             </div>
             
             <div class="total">
                 <div id="calculo">
                 
                 </div>
-                <button id="calcular" type="click" class="btn-calculo">Calcular</button>
-                <button id="limpiar" type="click" class="btn-calculo">Limpiar</button>
+                <button id="calcular"  class="btn-calculo">Calcular</button>
+                <button id="limpiar"  class="btn-calculo">Limpiar</button>
             </div>
             <div id="pago" class="cuotas">
                 <p>Selecciona la cantidad de cuotas</p>
                 <div>
                     <input id="cuotas" type="number" placeholder="1 2 3...">
-                    <button type="click" id="pagar" class="btn-pagar">Pagar</button>
+                    <button id="pagar" class="btn-pagar">Pagar</button>
                 </div>
             </div>
             <div id="contenedor_cuotas">
@@ -73,6 +81,8 @@
 
     </footer>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./assets/js/index.js"></script>
 </body>
 

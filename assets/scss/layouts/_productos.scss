@@ -1,57 +1,98 @@
-.cards{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-row-gap: 20px;
-    justify-content: space-between;
-    .card{
+.seccion_productos {
+    @include flex-row-between;
+
+    .filtros {
+        @include flex-column-evenly;
         width: 200px;
-        height: auto;
+        height: 150px;
         padding: 10px;
         border-radius: 15px;
         background-color: #fff;
         filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
-
-        .foto_producto{
-            width: 100%;
-            height: 175px;
-            .imagen{
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 10px;
-            }
+        h3{
+            font-size: 15px;
         }
-        .card_body{
-            margin-top: 5px;
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-
-            p{
-                margin-top: 5px;
-            }
-
-            .flex-row{
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-end;
-                .btn-comprar{
-                    width: 75px;
-                    height: 30px;
-                    
-                    color: #fff;
-                    border: none;
-                    background-color: map-get($colors, detalles );
-                    border-radius: 5px;
-                }
-                /* .btn-comprar:hover {
-                    background-color: ;
-                    
-                } */
-            }
+        .btn-filtro {
+            width: 75px;
+            height: 30px;
+            color: map-get($colors, titulos);
+            border: none;
+            background-color: #fff;
+            border-radius: 5px;
             
+            
+        }
+        .btn-filtro:hover{
+            color: map-get($colors, detalles-2);
+        }
+    }
+    
+    .cards {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-row-gap: 25px;
+        justify-content: space-around;
+
+        .card {
+            width: 200px;
+            height: auto;
+            padding: 10px;
+            border-radius: 15px;
+            background-color: #fff;
+            filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
+
+            .foto_producto {
+                width: 100%;
+                height: 175px;
+
+                .imagen {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+            }
+
+            .card_body {
+                margin-top: 5px;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                p {
+                    margin-top: 5px;
+                }
+
+                .flex-row {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    margin-top: 5px;
+
+                    input {
+                        width: 75px;
+                        height: 30px;
+                        border: none;
+                        border-radius: 5px;
+                    }
+
+                    .btn-comprar {
+                        width: 75px;
+                        height: 30px;
+                        color: #fff;
+                        border: none;
+                        background-color: map-get($colors, detalles);
+                        border-radius: 5px;
+                    }
+
+                    .btn-comprar:hover {
+                        background-color: map-get($colors, detalles-2 );
+                    }
+                }
+
+            }
         }
     }
 }

@@ -1,44 +1,50 @@
 const productos = [
     {
         id: 1,
-        imagen: "../assets/img/producto.JPG",
+        imagen: "./assets/img/producto.JPG",
         name: "Mate 1",
         categoria: "mate",
         precio: 1000,
+        cantidad: 0,
     },
     {
         id: 2,
-        imagen: "../assets/img/producto.JPG",
+        imagen: "./assets/img/producto.JPG",
         name: "Mate 2",
         categoria: "mate",
-        precio: 1500
+        precio: 1500,
+        cantidad: 0,
     },
     {
         id: 3,
-        imagen: "../assets/img/producto.JPG",
+        imagen: "./assets/img/producto.JPG",
         name: "Mate 3",
         categoria: "mate",
-        precio: 2000
+        precio: 2000,
+        cantidad: 0,
     },
     {
         id: 4,
-        imagen: "../assets/img/producto.JPG",
+        imagen: "./assets/img/producto.JPG",
         name: "Yerba 1",
         categoria: "yerba",
-        precio: 500
+        precio: 500,
+        cantidad: 0,
     },
     {
         id: 5,
-        imagen: "../assets/img/producto.JPG",
+        imagen: "./assets/img/producto.JPG",
         name: "Yerba 2",
         categoria: "yerba",
-        precio: 800
+        precio: 800,
+        cantidad: 0,
     },
     {
         id: 6,
-        imagen: "../assets/img/producto.JPG",
-        name: "Yerba 3",
-        categoria: "yerba",
-        precio: 800
+        imagen: "./assets/img/producto.JPG",
+        name: "Bombilla",
+        categoria: "bombilla",
+        precio: 800,
+        cantidad: 0,
     },
 ]
