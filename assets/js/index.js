@@ -40,13 +40,13 @@ function cargoProductos() {
 //Agrego los productos seleccionados al carrito
 
 function seleccionProductos(id_seleccionado) {
-    let cant1 = document.getElementById("cant1").value;
-    let cant2 = document.getElementById("cant2").value;
-    let cant3 = document.getElementById("cant3").value;
-    let cant4 = document.getElementById("cant4").value;
-    let cant5 = document.getElementById("cant5").value;
-    let cant6 = document.getElementById("cant6").value;
-
+    (document.getElementById("cant1")) ? cant1 = document.getElementById("cant1").value : cant1 = 0;
+    (document.getElementById("cant2")) ? cant2 = document.getElementById("cant2").value : cant2 = 0;
+    (document.getElementById("cant3")) ? cant3 = document.getElementById("cant3").value : cant3 = 0; 
+    (document.getElementById("cant4")) ? cant4 = document.getElementById("cant4").value : cant4 = 0;
+    (document.getElementById("cant5")) ? cant5 = document.getElementById("cant5").value : cant5 = 0;
+    (document.getElementById("cant6")) ? cant6 = document.getElementById("cant6").value : cant6 = 0;
+    
     cant1 > 0 ? cantidad = +(cant1) : false
     cant2 > 0 ? cantidad = +(cant2) : false
     cant3 > 0 ? cantidad = +(cant3) : false
@@ -62,16 +62,26 @@ function seleccionProductos(id_seleccionado) {
         cantidad: cantidad
     }
     console.log(objeto_seleccionado)
-    if (!carrito.some((el) => el.id == id_seleccionado)) { //Sino existe el producto en el carrito lo agrego
+    if (!carrito.some((el) => el.id == id_seleccionado)) {    //Sino existe el producto en el carrito lo agrego
 
         carrito.push(objeto_seleccionado);
         console.log(carrito)
         localStorage.setItem("StorageProductos", JSON.stringify(carrito));
-        location.reload()
+        
+        Toastify({ //Libreria toastify
+            text: "Producto agregado al carrito",
+            duration: 2000,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            className: "notificacion",
+        }).showToast();
 
-    } else {
+        setTimeout(() => {
+            location.reload()
+        }, 1000)
+
+    } else { //Si existe el producto en el carrito
         Swal.fire({ //Libreria sweetalert
-            title: 'Cuidado!',
             text: 'Debes eliminar el producto del carrito primero',
             icon: 'info',
             confirmButtonText: 'ok'
@@ -81,6 +91,7 @@ function seleccionProductos(id_seleccionado) {
 
 //Muestro los productos del carrito
 function mostrarCarrito() {
+
     carrito.forEach((carrito) => {
         contenedor_carrito.innerHTML += `
         <div class="cards_carrito">
@@ -105,7 +116,18 @@ function eliminar_producto(id_seleccionado) {
     let eliminar = carrito.filter((e) => e.id != id_seleccionado)
     carrito = eliminar;
     localStorage.setItem("StorageProductos", JSON.stringify(carrito))
-    location.reload();
+    
+    Toastify({ //Libreria toastify
+        text: "Producto eliminado del carrito",
+        duration: 1500,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        className: "notificacion-1",
+    }).showToast();
+
+    setTimeout(() => {
+        location.reload()
+    }, 1000)
 }
 console.log(carrito)
 
@@ -181,7 +203,7 @@ function filtros(e) {
         contenedor_productos.innerHTML = ``;
         productos.forEach(productos => {
 
-            productos.categoria == e ? /* console.log(productos.categoria) */
+            productos.categoria == e ?
                 contenedor_productos.innerHTML += `
             <div class="card">
                 <div class="foto_producto">

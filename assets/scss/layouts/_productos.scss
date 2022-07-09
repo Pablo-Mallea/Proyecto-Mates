@@ -23,7 +23,7 @@
             
         }
         .btn-filtro:hover{
-            color: map-get($colors, detalles);
+            color: map-get($colors, detalles-2);
         }
     }
     
@@ -87,10 +87,9 @@
                         border-radius: 5px;
                     }
 
-                    /* .btn-comprar:hover {
-                        background-color: ;
-                        
-                    } */
+                    .btn-comprar:hover {
+                        background-color: map-get($colors, detalles-2 );
+                    }
                 }
 
             }
