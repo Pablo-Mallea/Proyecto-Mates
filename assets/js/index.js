@@ -27,7 +27,7 @@ function cargoProductos() {
                 <p>${productos.name}</p>
                 <p>$ ${productos.precio}</P>
                 <div class="flex-row">
-                    <input type="numero" id="cant${productos.id}" placeholder="Cantididad..."> 
+                    <input type="number" id="cant${productos.id}" placeholder="Cantididad..."> 
                     <button class="btn-comprar" onClick="seleccionProductos(${productos.id})">Comprar</button>
                 </div>
             </div>
@@ -223,3 +223,4 @@ function filtros(e) {
     }
 
 }
+

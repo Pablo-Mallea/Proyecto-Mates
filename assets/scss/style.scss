@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Tiro+Kannada:ital@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -16,67 +17,127 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-ul li {
-    list-style-type: none;
-
-    a {
-        text-decoration: none;
-        color: map-get($colors, detalles);
-    }
-    
-}
-
-header {
-    grid-area: header;
-    width: 100%;
-    height: 300px;
-    color: map-get($colors, nav);
-    
-    .portada {
-        width: auto;
-        background: rgba(0, 0, 0, 0.5) url("../img/portada.JPG");
-        height: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-blend-mode: darken;
-    }
-    nav {
-        padding-left: 130px;
-        padding-right: 130px;
-        ul{
+@media (min-width: 300px) and (max-width: 991px) {
+    header {
+        grid-area: header;
+        width: 100%;
+        height: auto;
+        color: map-get($colors, nav);
+        
+        .portada {
             width: auto;
-            @include flex-row-between;
-            a {
-                text-decoration: none;
-                color: map-get($colors, nav);
+            background: rgba(0, 0, 0, 0.5) url("../img/portada.JPG");
+            height: 200px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-blend-mode: darken;
+            @include flex-column-center;
+
+            .title {
+                font-family: "Tiro Kannada", serif;
+                font-size: 30px;
             }
         }
     }
-    
-    .title{
+    nav {
+        grid-area: nav;
         padding-left: 130px;
         padding-right: 130px;
-        @include flex-row-center;
-        font-family: "Tiro Kannada", serif;
-        font-size: 30px;
+        background-color: map-get($colors, nav );
+        /* position: fixed;
+        top: 0;
+        right: 0;
+        left: 0; */
+        ul {
+            width: auto;
+            @include flex-row-evenly;
+            padding: 20px 0;
+            li{
+                list-style-type: none;
+            }
+            a {
+                text-decoration: none;
+                color: map-get($colors, titulos);
+            }
+        }
+    }
+    main {
+        grid-area: main;
+        padding: 0 15px;
+        
+        h2 {
+            @include flex-row-center;
+            padding: 20px 0 ;
+            color: map-get($colors, titulos );
+        }
+    }
+
+    footer {
+        grid-area: footer;
+        background-color: map-get($colors, footer);
     }
 }
 
 
-main {
-    grid-area: main;
-    padding-left: 130px;
-    padding-right: 130px;
+@media (min-width: 992px) {
 
-    h2{
-        @include flex-row-center;
-        padding: 20px 0 20px 0;
+    header {
+        grid-area: header;
+        width: 100%;
+        height: auto;
+        color: map-get($colors, nav);
+        
+        .portada {
+            width: auto;
+            background: rgba(0, 0, 0, 0.5) url("../img/portada.JPG");
+            height: 200px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-blend-mode: darken;
+            @include flex-column-center;
+
+            .title {
+                font-family: "Tiro Kannada", serif;
+                font-size: 30px;
+            }
+        }
     }
-    
-}
 
-footer {
-    grid-area: footer;
-    background-color: map-get($colors, fondo);
+    nav {
+        grid-area: nav;
+        padding-left: 130px;
+        padding-right: 130px;
+        background-color: map-get($colors, nav );
+
+        ul {
+            width: auto;
+            @include flex-row-evenly;
+            padding: 20px 0;
+            li{
+                list-style-type: none;
+            }
+            a {
+                text-decoration: none;
+                color: map-get($colors, titulos);
+            }
+        }
+    }
+    main {
+        grid-area: main;
+        padding-left: 130px;
+        padding-right: 130px;
+        
+        h2 {
+            @include flex-row-center;
+            padding: 20px 0 ;
+            color: map-get($colors, titulos );
+        }
+    }
+
+    footer {
+        grid-area: footer;
+        background-color: map-get($colors, footer);
+    }
 }

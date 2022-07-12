@@ -14,56 +14,53 @@
 <body id="grid">
     <header>
         <div class="portada">
-            <nav class="navegation">
-                <ul>
-                    <li>
-                        <a href="">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="#productos">Productos</a>
-                    </li>
-                    <li>
-                        <a href="#carrito">Carrito</a>
-                    </li>
-                    <li>
-                        <a href="#contacto">Contacto</a>
-                    </li>
-                </ul>
-            </nav>
             <div class="title">
                 <h1>Mates</h1>
             </div>
         </div>
-        
     </header>
-    
+    <nav class="navegation">
+        <ul>
+            <li>
+                <a href="">Inicio</a>
+            </li>
+            <li>
+                <a href="#productos">Productos</a>
+            </li>
+            <li>
+                <a href="#carrito">Carrito</a>
+            </li>
+        </ul>
+    </nav>
     <main>
         <section>
             <h2>Productos</h2>
             <div class="seccion_productos">
                 <div class="filtros">
                     <h3>Filtros</h3>
+
                     <button id="btn-todos" class="btn-filtro">Todos</button>
                     <button id="btn-mates" class="btn-filtro">Mates</button>
                     <button id="btn-yerba" class="btn-filtro">Yerba</button>
                     <button id="btn-bombilla" class="btn-filtro">Bombilla</button>
+
                 </div>
                 <div id="productos" class="cards"></div>
-                
+
             </div>
         </section>
         <section>
             <h2>Carrito</h2>
             <div id="carrito" class="productos_carrito">
-                
+
             </div>
-            
+
             <div class="total">
                 <div id="calculo">
-                
+
                 </div>
-                <button id="calcular"  class="btn-calculo">Calcular</button>
-                <button id="limpiar"  class="btn-calculo">Limpiar</button>
+                <button id="calcular" class="btn-calculo">Calcular</button>
+                <button id="limpiar" class="btn-calculo">Limpiar</button>
             </div>
             <div id="pago" class="cuotas">
                 <p>Selecciona la cantidad de cuotas</p>
