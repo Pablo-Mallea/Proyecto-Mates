@@ -15,6 +15,7 @@
 body {
     background-color: map-get($colors, bg);
     font-family: 'Montserrat', sans-serif;
+    height: 100%;
 }
 
 @media (min-width: 300px) and (max-width: 991px) {
@@ -42,35 +43,34 @@ body {
     }
     nav {
         grid-area: nav;
-        padding-left: 130px;
-        padding-right: 130px;
         background-color: map-get($colors, nav );
-        /* position: fixed;
+        position: sticky;
         top: 0;
-        right: 0;
-        left: 0; */
+        z-index: 1;
         ul {
             width: auto;
             @include flex-row-evenly;
             padding: 20px 0;
             li{
                 list-style-type: none;
-            }
-            a {
-                text-decoration: none;
-                color: map-get($colors, titulos);
+                a {
+                    width: auto;
+                    text-decoration: none;
+                    color: map-get($colors, titulos);
+                }
             }
         }
+        
     }
     main {
         grid-area: main;
-        padding: 0 15px;
-        
+        padding: 0 25px;
         h2 {
             @include flex-row-center;
             padding: 20px 0 ;
             color: map-get($colors, titulos );
         }
+        
     }
 
     footer {
@@ -97,6 +97,7 @@ body {
             background-size: cover;
             background-blend-mode: darken;
             @include flex-column-center;
+            
 
             .title {
                 font-family: "Tiro Kannada", serif;
@@ -110,9 +111,11 @@ body {
         padding-left: 130px;
         padding-right: 130px;
         background-color: map-get($colors, nav );
-
+        position: sticky;
+        top: 0;
+        z-index: 1;
         ul {
-            width: auto;
+            width: 100%;
             @include flex-row-evenly;
             padding: 20px 0;
             li{
@@ -126,13 +129,16 @@ body {
     }
     main {
         grid-area: main;
-        padding-left: 130px;
-        padding-right: 130px;
+        padding-left: 150px;
+        padding-right: 150px;
         
         h2 {
             @include flex-row-center;
             padding: 20px 0 ;
             color: map-get($colors, titulos );
+        }
+        .compras{
+            margin: 15px 0;
         }
     }
 

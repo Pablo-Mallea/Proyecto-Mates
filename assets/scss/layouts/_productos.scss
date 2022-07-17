@@ -2,11 +2,17 @@
     .seccion_productos{
         @include flex-column-between;
         margin: 15px;
+        
         .filtros{
             @include flex-row-evenly;
-
+            width: auto;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            align-items: center;
+            
             h3 {
-                font-size: 15px;
+                font-size: 16px;
             }
 
             .btn-filtro {
@@ -16,18 +22,19 @@
                 background-color: #fff;
                 border-radius: 5px;
                 cursor: pointer;
+                font-size: 14px;
+                &:hover{
+                    color: map-get($colors, compras);
+                }
             }
-
-            .btn-filtro:hover {
-                color: map-get($colors, detalles-2);
-            }
+            
         }
         .cards {
             width: 100%;
             display: flex;
             flex-flow: row wrap;
             justify-content: space-evenly;
-
+            
             .card {
                 width: 200px;
                 height: auto;
@@ -107,7 +114,7 @@
             border-radius: 15px;
             background-color: #fff;
             filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
-
+            
             h3 {
                 font-size: 15px;
             }
@@ -119,11 +126,11 @@
                 background-color: #fff;
                 border-radius: 5px;
                 cursor: pointer;
+                &:hover{
+                    color: map-get($colors, compras);
+                }
             }
 
-            .btn-filtro:hover {
-                color: map-get($colors, detalles-2);
-            }
         }
 
         .cards {
@@ -185,11 +192,12 @@
                             background-color: map-get($colors, detalles);
                             border-radius: 5px;
                             cursor: pointer;
+                            &:hover{
+                            background-color: map-get($colors, compras);
+
+                            }
                         }
 
-                        .btn-comprar:hover {
-                            background-color: map-get($colors, detalles-2);
-                        }
                     }
 
                 }

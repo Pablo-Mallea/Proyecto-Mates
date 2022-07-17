@@ -1,23 +1,37 @@
-//Incorporando Librerias
+//Incorporando FETCH
+
+document.addEventListener("DOMContentLoaded", () => { 
+    //Funciones que llamo al cargar la pagina
+    cargarCarrito();
+    cargoProductos();
+    mostrarCarrito();
+})
 
 let contenedor_productos = document.getElementById("productos")
 let contenedor_carrito = document.getElementById("carrito")
 let carrito = [];
-console.log(carrito)
 
-//Funciones que llamo
-cargarCarrito();
-mostrarCarrito();
-cargoProductos();
+//Obtengo los datos del .json
+const getProductos = () =>{
+    return new Promise ((resolve, reject) => {
+        fetch('../assets/data/productos.json')
+        .then(response => response.json())
+        .then(data => {resolve(data)})
+        .catch(error => {reject(error)})
+    })
+}
 
 //Cargo los productos del localStorage
-function cargarCarrito() {
+const cargarCarrito = () => {
     carrito = JSON.parse(localStorage.getItem("StorageProductos")) || localStorage.setItem("StorageProductos", JSON.stringify(carrito));
+    console.log(carrito)
 }
 
 //Cargo los productos
-function cargoProductos() {
-    productos.forEach(productos => {
+const cargoProductos = async() => {
+    let data = await getProductos();
+    console.log(data)
+    data.forEach(productos => {
         contenedor_productos.innerHTML += `
         <div class="card">
             <div class="foto_producto">
@@ -37,9 +51,13 @@ function cargoProductos() {
     });
 }
 
+
 //Agrego los productos seleccionados al carrito
 
-function seleccionProductos(id_seleccionado) {
+const seleccionProductos = async(id_seleccionado) => {
+    let data = await getProductos();
+    console.log(data);
+
     (document.getElementById("cant1")) ? cant1 = document.getElementById("cant1").value: cant1 = 0;
     (document.getElementById("cant2")) ? cant2 = document.getElementById("cant2").value: cant2 = 0;
     (document.getElementById("cant3")) ? cant3 = document.getElementById("cant3").value: cant3 = 0;
@@ -58,7 +76,7 @@ function seleccionProductos(id_seleccionado) {
 
     let objeto_seleccionado = {};
     objeto_seleccionado = {
-        ...productos[indice],
+        ...data[indice],
         cantidad: cantidad
     }
     console.log(objeto_seleccionado)
@@ -68,20 +86,20 @@ function seleccionProductos(id_seleccionado) {
         console.log(carrito)
         localStorage.setItem("StorageProductos", JSON.stringify(carrito));
 
-        Toastify({ //Libreria toastify
+        Toastify({ 
             text: "Producto agregado al carrito",
             duration: 2000,
-            gravity: "top", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
+            gravity: "top", 
+            position: "right", 
             className: "notificacion",
         }).showToast();
 
         setTimeout(() => {
-            location.reload()
+            mostrarCarrito()
         }, 1000)
 
     } else { //Si existe el producto en el carrito
-        Swal.fire({ //Libreria sweetalert
+        Swal.fire({ 
             text: 'Debes eliminar el producto del carrito primero',
             icon: 'info',
             confirmButtonText: 'ok'
@@ -89,9 +107,11 @@ function seleccionProductos(id_seleccionado) {
     }
 }
 
-//Muestro los productos del carrito
-function mostrarCarrito() {
 
+
+//Muestro los productos del carrito
+const mostrarCarrito = () =>{
+    contenedor_carrito.innerHTML = ``
     carrito.forEach((carrito) => {
         contenedor_carrito.innerHTML += `
         <div class="cards_carrito">
@@ -106,7 +126,6 @@ function mostrarCarrito() {
             <div class="eliminar">
                 <button onClick="eliminar_producto(${carrito.id})" class="btn-eliminar">Eliminar</button>
             </div>
-            
         </div>
         `
     });
@@ -120,13 +139,14 @@ function eliminar_producto(id_seleccionado) {
     Toastify({ //Libreria toastify
         text: "Producto eliminado del carrito",
         duration: 1500,
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
+        gravity: "top",
+        position: "right", 
         className: "notificacion-1",
     }).showToast();
 
     setTimeout(() => {
-        location.reload()
+        contenedor_carrito.innerHTML=``
+        mostrarCarrito();
     }, 1000)
 }
 console.log(carrito)
@@ -154,10 +174,6 @@ calcular.onclick = () => {
 
 }
 
-limpiar.onclick = () => {
-    location.reload();
-}
-
 let pagar = document.getElementById("pagar")
 pagar.onclick = () => {
     let cuotas = 0;
@@ -166,12 +182,16 @@ pagar.onclick = () => {
     contenedor_cuotas = document.getElementById("contenedor_cuotas");
 
     console.log(cuotas)
-    if (cuotas > 0 && cuenta > 0) {
+    if ( 12 >= cuotas && cuotas > 0 && cuenta > 0) {
         cu = cuenta / cuotas;
         console.log(cu)
         cu = cu.toFixed(2)
 
-        contenedor_cuotas.innerHTML = `<p>Total $${cuenta} en ${cuotas} cuotas de $ ${cu}</p>`
+        Swal.fire( {
+            icon: 'success',
+            html: `<p>Total $${cuenta} en ${cuotas} cuota/s de $ ${cu}</p>`,
+            confirmButtonText: 'continuar'
+        })
     }
 }
 
@@ -194,14 +214,14 @@ bombilla.onclick = () => {
     filtros("bombilla");
 }
 
-function filtros(e) {
+const filtros = async(e) =>{
     if (e == "todos") {
         contenedor_productos.innerHTML = ``;
         cargoProductos();
     } else {
-        /* console.log(e); */
+        let data = await getProductos();
         contenedor_productos.innerHTML = ``;
-        productos.forEach(productos => {
+        data.forEach(productos => {
 
             productos.categoria == e ?
                 contenedor_productos.innerHTML += `
@@ -213,7 +233,7 @@ function filtros(e) {
                     <p>${productos.name}</p>
                     <p>$ ${productos.precio}</P>
                     <div class="flex-row">
-                        <input type="numero" id="cant${productos.id}" placeholder="Cantididad..."> 
+                        <input type="number" id="cant${productos.id}" placeholder="Cantididad..."> 
                         <button class="btn-comprar" onClick="seleccionProductos(${productos.id})">Comprar</button>
                     </div>
                 </div>

@@ -12,7 +12,7 @@
 </head>
 
 <body id="grid">
-    <header>
+    <header id="inicio">
         <div class="portada">
             <div class="title">
                 <h1>Mates</h1>
@@ -22,7 +22,7 @@
     <nav class="navegation">
         <ul>
             <li>
-                <a href="">Inicio</a>
+                <a href="#inicio">Inicio</a>
             </li>
             <li>
                 <a href="#productos">Productos</a>
@@ -30,6 +30,8 @@
             <li>
                 <a href="#carrito">Carrito</a>
             </li>
+            
+
         </ul>
     </nav>
     <main>
@@ -38,7 +40,6 @@
             <div class="seccion_productos">
                 <div class="filtros">
                     <h3>Filtros</h3>
-
                     <button id="btn-todos" class="btn-filtro">Todos</button>
                     <button id="btn-mates" class="btn-filtro">Mates</button>
                     <button id="btn-yerba" class="btn-filtro">Yerba</button>
@@ -49,33 +50,35 @@
 
             </div>
         </section>
-        <section>
+        <section class="compras">
             <h2>Carrito</h2>
-            <div id="carrito" class="productos_carrito">
-
-            </div>
-
-            <div class="total">
-                <div id="calculo">
-
+            <div class="contenedor-compras">
+                <div id="carrito" class="productos_carrito">
+                    
                 </div>
-                <button id="calcular" class="btn-calculo">Calcular</button>
-                <button id="limpiar" class="btn-calculo">Limpiar</button>
-            </div>
-            <div id="pago" class="cuotas">
-                <p>Selecciona la cantidad de cuotas</p>
-                <div>
-                    <input id="cuotas" type="number" placeholder="1 2 3...">
-                    <button id="pagar" class="btn-pagar">Pagar</button>
+    
+                <div class="total">
+                    <div class="calcular">
+                        <div id="calculo"> </div>
+                        <button id="calcular" class="btn-calculo" type="button">Calcular</button>
+
+                    </div>
+
+                    <p>Selecciona la cantidad de cuotas</p>
+                    
+                    <div class="cuotas">
+                        <input id="cuotas" type="number" placeholder="  max. 12">
+                        <button id="pagar" class="btn-pagar" type="button">Pagar</button>
+                    </div>
+                    <div id="contenedor_cuotas"></div>
+                    
                 </div>
             </div>
-            <div id="contenedor_cuotas">
-            </div>
+            
         </section>
 
     </main>
     <footer>
-
     </footer>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
