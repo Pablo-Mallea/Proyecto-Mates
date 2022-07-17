@@ -1,91 +1,271 @@
-.productos_carrito {
-    width: 100%;
-    height: auto;
-    @include flex-column-between;
+@media (min-width: 300px) and (max-width: 991px) {
+    .contenedor-compras {
+        @include flex-column-between;
+        margin-bottom: 20px;
+        .productos_carrito {
+            width: 100%;
+            height: auto;
+            @include flex-column-between;
 
-    .cards_carrito {
-        width: 100%;
-        height: 50px;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        margin-bottom: 15px;
-        border-radius: 15px;
-        background-color: #fff;
-        filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
-
-
-        .info_producto {
-            width: 250px;
-            @include flex-row-between;
-            align-items: center;
-
-            .foto_carrito {
-                width: 50px;
+            .cards_carrito {
+                width: auto;
                 height: 50px;
-                border-radius: 7px;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 15px;
+                margin-bottom: 15px;
+                border-radius: 15px;
+                background-color: #fff;
+                filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
 
-                .imagen {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    border-radius: 10px;
+
+                .info_producto {
+                    width: 250px;
+                    @include flex-row-between;
+                    align-items: center;
+
+                    .foto_carrito {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 7px;
+
+                        .imagen {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 10px;
+                        }
+                    }
+                }
+
+                .btn-eliminar {
+                    width: 75px;
+                    height: 30px;
+                    color: #fff;
+                    border: none;
+                    background-color: map-get($colors, eliminar);
+                    border-radius: 5px;
+                    cursor: pointer;
                 }
             }
         }
 
-        .btn-eliminar {
-            width: 75px;
-            height: 30px;
-
-            color: #fff;
+        .total {
+            width: auto;
+            height: 125px;
+            @include flex-column-between;
+            background-color: #fff;
             border: none;
-            background-color: map-get($colors, eliminar);
-            border-radius: 5px;
+            border-radius: 15px;
+            padding: 15px 20px;
+
+            .calcular {
+                display: flex;
+                flex-direction: row;
+                justify-content: end;
+                align-items: center;
+
+                #calculo {
+                    margin-right: 20px;
+                    p {
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                }
+
+                .btn-calculo {
+                    width: 75px;
+                    height: 30px;
+                    background-color: #fff;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 16px;
+                    &:hover {
+                        border: 1px solid;
+                        border-radius: 5px;
+                        border-color: map-get($colors, compras);
+                        color: map-get($colors, compras);
+                    }
+                }
+
+            }
+
+            p {
+                align-self: center;
+                font-size: 16px;
+            }
+
+            .cuotas {
+                width: auto;
+                height: auto;
+                @include flex-row-between;
+                align-items: center;
+
+                input {
+                    width: 75%;
+                    height: 30px;
+                    border: none;
+                    border-color: #fff;
+                    border-radius: 5px;
+                    background-color: #eee;
+                    font-size: 16px;
+                }
+
+                .btn-pagar {
+                    width: 75px;
+                    height: 30px;
+                    background-color: #fff;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 16px;
+                    &:hover {
+                        border: 1px solid;
+                        border-radius: 5px;
+                        border-color: map-get($colors, compras);
+                        color: map-get($colors, compras);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .contenedor-compras {
+        @include flex-row-between;
+        margin-bottom: 20px;
+        .productos_carrito {
+            width: 75%;
+            height: auto;
+            @include flex-column-between;
+
+            .cards_carrito {
+                width: auto;
+                height: 50px;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 15px;
+                margin-bottom: 15px;
+                border-radius: 15px;
+                background-color: #fff;
+                filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.25));
+
+
+                .info_producto {
+                    width: 250px;
+                    @include flex-row-between;
+                    align-items: center;
+
+                    .foto_carrito {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 7px;
+
+                        .imagen {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 10px;
+                        }
+                    }
+                }
+
+                .btn-eliminar {
+                    width: 75px;
+                    height: 30px;
+                    color: #fff;
+                    border: none;
+                    background-color: map-get($colors, eliminar);
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            }
         }
 
-    }
-}
-.total{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: end;
-    .btn-calculo{
-        width: 75px;
-        height: 30px;
-        background-color: #fff;
-        border: none;
-        border-radius: 5px;
-        margin-left: 15px;
-    }
-}
-.cuotas{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
+        .total {
+            width: 20%;
+            height: 125px;
+            @include flex-column-between;
+            background-color: #fff;
+            border: none;
+            border-radius: 15px;
+            padding: 10px;
 
-    input{
-        width: 75px;
-        height: 30px;
-        border: none;
-        border-radius: 5px;
-        background-color: #fff;
-    }
-    .btn-pagar{
-        width: 75px;
-        height: 30px;
-        background-color: #fff;
-        border: none;
-        border-radius: 5px;
-        margin-left: 15px;
+            .calcular {
+                display: flex;
+                flex-direction: row;
+                justify-content: end;
+                align-items: center;
+
+                #calculo {
+                    margin-right: 20px;
+                    p {
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                }
+
+                .btn-calculo {
+                    width: 75px;
+                    height: 30px;
+                    background-color: #fff;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 16px;
+                    &:hover {
+                        border: 1px solid;
+                        border-radius: 5px;
+                        border-color: map-get($colors, compras);
+                        color: map-get($colors, compras);
+                        
+                    }
+                }
+
+            }
+
+            p {
+                align-self: center;
+                font-size: 14px;
+            }
+
+            .cuotas {
+                width: auto;
+                height: auto;
+                @include flex-row-between;
+                align-items: center;
+
+                input {
+                    width: 75%;
+                    height: 30px;
+                    border: none;
+                    border-color: #fff;
+                    border-radius: 5px;
+                    background-color: #eee;
+                }
+
+                .btn-pagar {
+                    width: 75px;
+                    height: 30px;
+                    background-color: #fff;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 16px;
+                    &:hover {
+                        border: 1px solid;
+                        border-radius: 5px;
+                        border-color: map-get($colors, compras);
+                        color: map-get($colors, compras);
+                    }
+                }
+            }
+        }
     }
 }
