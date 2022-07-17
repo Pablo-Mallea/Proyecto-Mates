@@ -14,7 +14,7 @@ let carrito = [];
 //Obtengo los datos del .json
 const getProductos = () =>{
     return new Promise ((resolve, reject) => {
-        fetch('../assets/data/productos.json')
+        fetch('./assets/data/productos.json')
         .then(response => response.json())
         .then(data => {resolve(data)})
         .catch(error => {reject(error)})
