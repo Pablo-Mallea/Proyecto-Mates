@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href='https://css.gg/css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Login</title>
+</head>
+<body id="grid">
+    <header id="inicio">
+        <div class="portada">
+            <div class="title">
+                <h1>Mates</h1>
+            </div>
+        </div>
+    </header>
+    <nav class="navegation">
+        <a href="#" class="btn-nav">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li>
+                    <a href="../index.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="../index.html">Productos</a>
+                </li>
+                <li>
+                    <a href="../index.html">Carrito</a>
+                </li>
+                <li>
+                    <div class="sesion">
+                        <i class="gg-user"></i>
+                        <a id="login" class="btn-inicio" href="#">Iniciar sesión</a>
+                    </div>
+                </li>
+    
+            </ul>
+        </div>
+        
+    </nav>
+    <main>
+        <section >
+            <h2>Inicio de Sesión</h2>
+            <div class="inicioSesion">
+                <div class="inicio">
+                    <h3>Inicio</h3>
+                    <form>
+                        <div>
+                            <p>Mail</p>
+                            <input id="user" type="text" placeholder="Ingrese su mail" required>
+                        </div>
+                        <div>
+                            <p>Contraseña</p>
+                            <input id="password" type="password" placeholder="Contraseña" required>
+                        </div>
+                        <div>
+                            <button id="validarUsuario" type="button" class="btn-ingreso">Ingresar</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="registro">
+                    <h3>Registro</h3>
+    
+                    <form >
+                        <div>
+                            <p>Nombre y Apellido</p>
+                            <input id="userId" type="text" placeholder="Ingrese su Nombre" required>
+                        </div>
+                        <div>
+                            <p>Mail: </p>
+                            <input id="mail" type="text" placeholder="...@mail.com" required>
+                        </div>
+                        <div>
+                            <p>Dirección</p>
+                            <div class="direccion">
+                                <input id="calle" type="text" placeholder="Calle">
+                                <input id="altura" type="text" placeholder="Altura">
+                                <input id="piso" type="text" placeholder="Piso (Opcional)">
+                            </div>
+                        </div>
+                        <div>
+                            <p>Contraseña</p>
+                            <input id="passwordId" type="password" placeholder="min 4 caracteres" required>
+                            <input id="passwordIdCheck" type="password" placeholder="Confirmar contraseña" required>
+                        </div>
+                        
+                        <div>
+                            <button id="validarRegistro" type="submit" class="btn-ingreso">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../assets/js/sesion.js"></script>
+</body>
+</html>

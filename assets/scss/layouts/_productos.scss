@@ -74,10 +74,12 @@
                         margin-top: 5px;
 
                         input {
-                            width: 75px;
+                            width: 80px;
                             height: 30px;
                             border: none;
                             border-radius: 5px;
+                            background-color: #eee;
+
                         }
 
                         .btn-comprar {
@@ -91,7 +93,7 @@
                         }
 
                         .btn-comprar:hover {
-                            background-color: map-get($colors, detalles-2);
+                            background-color: map-get($colors, compras);
                         }
                     }
 
@@ -178,10 +180,11 @@
                         margin-top: 5px;
 
                         input {
-                            width: 75px;
+                            width: 80px;
                             height: 30px;
                             border: none;
                             border-radius: 5px;
+                            background-color: #eee;
                         }
 
                         .btn-comprar {
@@ -194,7 +197,6 @@
                             cursor: pointer;
                             &:hover{
                             background-color: map-get($colors, compras);
-
                             }
                         }
 

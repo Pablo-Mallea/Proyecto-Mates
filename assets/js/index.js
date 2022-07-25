@@ -1,10 +1,9 @@
-//Incorporando FETCH
-
-document.addEventListener("DOMContentLoaded", () => { 
+document.addEventListener("DOMContentLoaded", () => {
     //Funciones que llamo al cargar la pagina
     cargarCarrito();
     cargoProductos();
     mostrarCarrito();
+    sesionIniciada();
 })
 
 let contenedor_productos = document.getElementById("productos")
@@ -12,12 +11,16 @@ let contenedor_carrito = document.getElementById("carrito")
 let carrito = [];
 
 //Obtengo los datos del .json
-const getProductos = () =>{
-    return new Promise ((resolve, reject) => {
+const getProductos = () => {
+    return new Promise((resolve, reject) => {
         fetch('./assets/data/productos.json')
-        .then(response => response.json())
-        .then(data => {resolve(data)})
-        .catch(error => {reject(error)})
+            .then(response => response.json())
+            .then(data => {
+                resolve(data)
+            })
+            .catch(error => {
+                reject(error)
+            })
     })
 }
 
@@ -28,7 +31,7 @@ const cargarCarrito = () => {
 }
 
 //Cargo los productos
-const cargoProductos = async() => {
+const cargoProductos = async () => {
     let data = await getProductos();
     console.log(data)
     data.forEach(productos => {
@@ -41,7 +44,7 @@ const cargoProductos = async() => {
                 <p>${productos.name}</p>
                 <p>$ ${productos.precio}</P>
                 <div class="flex-row">
-                    <input type="number" id="cant${productos.id}" placeholder="Cantididad..."> 
+                    <input type="number" id="cant${productos.id}" placeholder="cantididad"> 
                     <button class="btn-comprar" onClick="seleccionProductos(${productos.id})">Comprar</button>
                 </div>
             </div>
@@ -54,63 +57,76 @@ const cargoProductos = async() => {
 
 //Agrego los productos seleccionados al carrito
 
-const seleccionProductos = async(id_seleccionado) => {
+const seleccionProductos = async (id_seleccionado) => {
     let data = await getProductos();
     console.log(data);
+    let cantidad = 0;
 
-    (document.getElementById("cant1")) ? cant1 = document.getElementById("cant1").value: cant1 = 0;
-    (document.getElementById("cant2")) ? cant2 = document.getElementById("cant2").value: cant2 = 0;
-    (document.getElementById("cant3")) ? cant3 = document.getElementById("cant3").value: cant3 = 0;
-    (document.getElementById("cant4")) ? cant4 = document.getElementById("cant4").value: cant4 = 0;
-    (document.getElementById("cant5")) ? cant5 = document.getElementById("cant5").value: cant5 = 0;
-    (document.getElementById("cant6")) ? cant6 = document.getElementById("cant6").value: cant6 = 0;
 
-    cant1 > 0 ? cantidad = +(cant1) : false
-    cant2 > 0 ? cantidad = +(cant2) : false
-    cant3 > 0 ? cantidad = +(cant3) : false
-    cant4 > 0 ? cantidad = +(cant4) : false
-    cant5 > 0 ? cantidad = +(cant5) : false
-    cant6 > 0 ? cantidad = +(cant6) : false
-
-    let indice = id_seleccionado - 1;
-
-    let objeto_seleccionado = {};
-    objeto_seleccionado = {
-        ...data[indice],
-        cantidad: cantidad
+    (document.getElementById("cant1")) ? cant1 = document.getElementById("cant1").value : cant1 = 0;
+    (document.getElementById("cant2")) ? cant2 = document.getElementById("cant2").value : cant2 = 0;
+    (document.getElementById("cant3")) ? cant3 = document.getElementById("cant3").value : cant3 = 0;
+    (document.getElementById("cant4")) ? cant4 = document.getElementById("cant4").value : cant4 = 0;
+    (document.getElementById("cant5")) ? cant5 = document.getElementById("cant5").value : cant5 = 0;
+    (document.getElementById("cant6")) ? cant6 = document.getElementById("cant6").value : cant6 = 0;
+    
+    switch (id_seleccionado){
+        case 1: cant1 > 0 ? cantidad = +(cant1) : false; break;
+        case 2: cant2 > 0 ? cantidad = +(cant2) : false; break;
+        case 3: cant3 > 0 ? cantidad = +(cant3) : false; break;
+        case 4: cant4 > 0 ? cantidad = +(cant4) : false; break;
+        case 5: cant5 > 0 ? cantidad = +(cant5) : false; break;
+        case 6: cant6 > 0 ? cantidad = +(cant6) : false; break;
     }
-    console.log(objeto_seleccionado)
-    if (!carrito.some((el) => el.id == id_seleccionado)) { //Sino existe el producto en el carrito lo agrego
 
-        carrito.push(objeto_seleccionado);
-        console.log(carrito)
-        localStorage.setItem("StorageProductos", JSON.stringify(carrito));
+    if (cantidad > 0) {
+        let indice = id_seleccionado - 1;
 
-        Toastify({ 
-            text: "Producto agregado al carrito",
-            duration: 2000,
-            gravity: "top", 
-            position: "right", 
-            className: "notificacion",
-        }).showToast();
+        let objeto_seleccionado = {};
+        objeto_seleccionado = {
+            ...data[indice],
+            cantidad: cantidad
+        }
+        console.log(objeto_seleccionado)
 
-        setTimeout(() => {
-            mostrarCarrito()
-        }, 1000)
+        if(!carrito.some((el) => el.id == id_seleccionado)) { //Sino existe el producto en el carrito lo agrego
 
-    } else { //Si existe el producto en el carrito
-        Swal.fire({ 
-            text: 'Debes eliminar el producto del carrito primero',
+            carrito.push(objeto_seleccionado);
+            console.log(carrito)
+            localStorage.setItem("StorageProductos", JSON.stringify(carrito));
+    
+            Toastify({
+                text: "Producto agregado al carrito",
+                duration: 2000,
+                gravity: "top",
+                position: "right",
+                className: "notificacion",
+            }).showToast();
+    
+            setTimeout(() => {
+                mostrarCarrito()
+            }, 1000)
+    
+        } else { //Si existe el producto en el carrito
+            Swal.fire({
+                text: 'Debes eliminar el producto del carrito primero',
+                icon: 'info',
+                confirmButtonText: 'OK'
+            })
+        }
+    }else{
+        Swal.fire({
+            text: 'Indica la cantidad primero',
             icon: 'info',
-            confirmButtonText: 'ok'
+            confirmButtonText: 'OK'
         })
     }
+    console.log(id_seleccionado)
 }
 
 
-
 //Muestro los productos del carrito
-const mostrarCarrito = () =>{
+const mostrarCarrito = () => {
     contenedor_carrito.innerHTML = ``
     carrito.forEach((carrito) => {
         contenedor_carrito.innerHTML += `
@@ -122,6 +138,7 @@ const mostrarCarrito = () =>{
                 <p>${carrito.name}</p>
                 <p>$ ${carrito.precio}</P>
                 <p> x${carrito.cantidad}</p>
+
             </div>
             <div class="eliminar">
                 <button onClick="eliminar_producto(${carrito.id})" class="btn-eliminar">Eliminar</button>
@@ -136,17 +153,17 @@ function eliminar_producto(id_seleccionado) {
     carrito = eliminar;
     localStorage.setItem("StorageProductos", JSON.stringify(carrito))
 
-    Toastify({ //Libreria toastify
+    Toastify({ 
         text: "Producto eliminado del carrito",
         duration: 1500,
         gravity: "top",
-        position: "right", 
+        position: "right",
         className: "notificacion-1",
     }).showToast();
 
     setTimeout(() => {
-        contenedor_carrito.innerHTML=``
         mostrarCarrito();
+        
     }, 1000)
 }
 console.log(carrito)
@@ -182,15 +199,15 @@ pagar.onclick = () => {
     contenedor_cuotas = document.getElementById("contenedor_cuotas");
 
     console.log(cuotas)
-    if ( 12 >= cuotas && cuotas > 0 && cuenta > 0) {
+    if (12 >= cuotas && cuotas > 0 && cuenta > 0) {
         cu = cuenta / cuotas;
         console.log(cu)
         cu = cu.toFixed(2)
 
-        Swal.fire( {
+        Swal.fire({
             icon: 'success',
             html: `<p>Total $${cuenta} en ${cuotas} cuota/s de $ ${cu}</p>`,
-            confirmButtonText: 'continuar'
+            confirmButtonText: 'Continuar'
         })
     }
 }
@@ -214,7 +231,7 @@ bombilla.onclick = () => {
     filtros("bombilla");
 }
 
-const filtros = async(e) =>{
+const filtros = async (e) => {
     if (e == "todos") {
         contenedor_productos.innerHTML = ``;
         cargoProductos();
@@ -243,4 +260,28 @@ const filtros = async(e) =>{
     }
 
 }
+//--------- Si hay inicio de sesión -------------------
 
+let login = document.getElementById("login");
+
+function sesionIniciada() {
+    let usuario = JSON.parse(sessionStorage.getItem("sesionUsuario"))
+    if(usuario){
+        usuario.find(el => {
+            nombre = el.user.toUpperCase();
+
+            login.innerHTML= `
+            <a id="login" class="btn-inicio" href="./pages/login.html">${nombre}</a>
+            `
+        })
+    }
+}
+
+
+//-------- navbar responsive ----------
+let btnNav = document.getElementsByClassName("btn-nav")[0];
+let navLinks = document.getElementsByClassName("navbar-links")[0];
+
+btnNav.addEventListener('click', () => {
+    navLinks.classList.toggle('active')
+})

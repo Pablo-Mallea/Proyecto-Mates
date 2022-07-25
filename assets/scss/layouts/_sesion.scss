@@ -1,0 +1,221 @@
+@media (min-width: 300px) and (max-width: 991px) {
+    .inicioSesion {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        .inicio {
+            width: 300px;
+            height: auto;
+            background-color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            padding: 15px 20px;
+            border-radius: 15px;
+
+            h3 {
+                margin-bottom: 10px;
+            }
+
+            form {
+                width: 100%;
+                height: 200px;
+                @include flex-column-between;
+
+                input {
+                    width: 100%;
+                    height: 30px;
+                    border: .5px solid rgba(0, 0, 0, 0.2);
+                    border-radius: 5px;
+                    margin-top: 10px;
+                }
+
+                .btn-ingreso {
+
+                    width: 100%;
+                    height: 30px;
+                    color: #fff;
+                    border: none;
+                    background-color: map-get($colors, detalles);
+                    border-radius: 5px;
+                    cursor: pointer;
+
+
+                    .btn-ingreso:hover {
+                        background-color: map-get($colors, compras);
+                    }
+                }
+            }
+
+        }
+
+        .registro {
+            width: 300px;
+            height: auto;
+            background-color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            padding: 15px 20px;
+            border-radius: 15px;
+
+            h3 {
+                margin-bottom: 10px;
+            }
+
+            form {
+                width: 100%;
+                height: auto;
+                @include flex-column-between;
+
+                p{
+                    margin: 5px 0;
+                }
+                input {
+                    width: 100%;
+                    height: 30px;
+                    border: .5px solid rgba(0, 0, 0, 0.2);
+                    border-radius: 5px;
+                    margin-top: 10px;
+                }
+
+                .btn-ingreso {
+                    width: 100%;
+                    height: 30px;
+                    color: #fff;
+                    border: none;
+                    background-color: map-get($colors, detalles);
+                    border-radius: 5px;
+                    cursor: pointer;
+                    margin-top: 10px;
+
+                    .btn-ingreso:hover {
+                        background-color: map-get($colors, compras);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .inicioSesion {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: flex-start;
+
+        .inicio {
+            width: 300px;
+            height: auto;
+            background-color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            padding: 15px 20px;
+            border-radius: 15px;
+
+            h3 {
+                margin-bottom: 10px;
+            }
+
+            form {
+                width: 100%;
+                height: 200px;
+                @include flex-column-between;
+
+                input {
+                    width: 100%;
+                    height: 30px;
+                    border: .5px solid rgba(0, 0, 0, 0.2);
+                    border-radius: 5px;
+                    margin-top: 10px;
+                    
+
+                }
+
+                .btn-ingreso {
+                    width: 100%;
+                    height: 30px;
+                    color: #fff;
+                    border: none;
+                    background-color: map-get($colors, detalles);
+                    border-radius: 5px;
+                    cursor: pointer;
+
+
+                    .btn-ingreso:hover {
+                        background-color: map-get($colors, compras);
+                    }
+                }
+            }
+
+        }
+
+        .registro {
+            width: 300px;
+            height: auto;
+            background-color: #fff;
+            margin-bottom: 20px;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            padding: 15px 20px;
+            border-radius: 15px;
+
+            h3 {
+                margin-bottom: 10px;
+            }
+
+            form {
+                width: 100%;
+                height: auto;
+                @include flex-column-between;
+                
+                input {
+                    width: 100%;
+                    height: 30px;
+                    border: none;
+                    border-radius: 5px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    border: .5px solid rgba(0, 0, 0, 0.2);
+
+                }
+                .direccion{
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: flex-start;
+                    width: 100%;
+                    #altura{
+                        width: 100px;
+                        
+                    }
+                    #piso{
+                        width: 100px;
+                        margin-left: 20px;
+                    }
+                }
+                .btn-ingreso {
+                    width: 100%;
+                    height: 30px;
+                    margin-top: 10px;
+                    color: #fff;
+                    border: none;
+                    background-color: map-get($colors, detalles);
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    .btn-ingreso:hover {
+                        background-color: map-get($colors, compras);
+                    }
+                }
+            }
+        }
+    }
+}

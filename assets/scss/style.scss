@@ -11,6 +11,7 @@
 @import "utilities/colors";
 @import "layouts/productos";
 @import "layouts/carrito";
+@import "layouts/sesion";
 
 body {
     background-color: map-get($colors, bg);
@@ -41,26 +42,78 @@ body {
             }
         }
     }
-    nav {
+    .navegation {
         grid-area: nav;
         background-color: map-get($colors, nav );
         position: sticky;
         top: 0;
         z-index: 1;
-        ul {
-            width: auto;
-            @include flex-row-evenly;
-            padding: 20px 0;
-            li{
-                list-style-type: none;
-                a {
-                    width: auto;
-                    text-decoration: none;
-                    color: map-get($colors, titulos);
-                }
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        .btn-nav{
+            position: absolute;
+            top: .75rem;
+            right:  1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            
+            .bar{
+                height: 3px;
+                width: 100%;
+                background-color: map-get($colors, detalles-2);
+                border-radius: 10px;
             }
         }
-        
+        .navbar-links{
+            display: none;
+            width: 100%;
+            ul {
+                width: 100%;
+                @include flex-column-evenly;
+                padding: 10px 0px;
+                li{
+                    list-style-type: none;
+                    text-align: center;
+                    padding: 5px 0;
+                    a {
+                        width: auto;
+                        text-decoration: none;
+                        color: map-get($colors, titulos);
+                    }
+                    .sesion{
+                        display: flex;
+                        flex-flow: row nowrap;
+                        color: map-get($colors, titulos);
+    
+                        .btn-inicio{
+                            margin-left: 5px;
+                            border: none;
+                            background-color: #fff;
+                            cursor: pointer;
+                            font-size: 16px;
+                            color: map-get($colors, titulos);
+                            
+                            &:hover{
+                                color: map-get($colors, compras);
+                            }
+                        }
+                        
+                    }
+                    &:hover{
+                        color: map-get($colors, compras);
+                    }
+                }   
+            }
+            
+        }
+        .navbar-links.active {
+            display: flex;
+        }
     }
     main {
         grid-area: main;
@@ -70,12 +123,25 @@ body {
             padding: 20px 0 ;
             color: map-get($colors, titulos );
         }
-        
     }
 
     footer {
         grid-area: footer;
-        background-color: map-get($colors, footer);
+        background-color: #fff;
+
+        .footerContainer{
+            height: 100%;
+            padding: 0 150px ;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-around;
+            align-items: center;
+            h4{
+                font-size: 24px;
+                color: map-get($colors, detalles-2);
+            }
+        }
+        
     }
 }
 
@@ -91,13 +157,12 @@ body {
         .portada {
             width: auto;
             background: rgba(0, 0, 0, 0.5) url("../img/portada.JPG");
-            height: 200px;
+            height: 250px;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             background-blend-mode: darken;
             @include flex-column-center;
-            
 
             .title {
                 font-family: "Tiro Kannada", serif;
@@ -106,7 +171,7 @@ body {
         }
     }
 
-    nav {
+    .navegation {
         grid-area: nav;
         padding-left: 130px;
         padding-right: 130px;
@@ -114,16 +179,41 @@ body {
         position: sticky;
         top: 0;
         z-index: 1;
+        
+       
         ul {
             width: 100%;
             @include flex-row-evenly;
             padding: 20px 0;
             li{
                 list-style-type: none;
-            }
-            a {
-                text-decoration: none;
-                color: map-get($colors, titulos);
+                a {
+                    text-decoration: none;
+                    color: map-get($colors, titulos);
+                    &:hover{
+                        color: map-get($colors, compras);
+                    }
+                }
+                .sesion{
+                    display: flex;
+                    flex-flow: row nowrap;
+                    color: map-get($colors, titulos);
+                    align-items: center;
+                    
+                    .btn-inicio{
+                        margin-left: 5px;
+
+                        border: none;
+                        background-color: #fff;
+                        cursor: pointer;
+                        font-size: 16px;
+                        color: map-get($colors, titulos);
+                        
+                        &:hover{
+                            color: map-get($colors, compras);
+                        }
+                    }
+                }
             }
         }
     }
@@ -144,6 +234,19 @@ body {
 
     footer {
         grid-area: footer;
-        background-color: map-get($colors, footer);
+        background-color: #fff;
+
+        .footerContainer{
+            height: 100%;
+            padding: 0 150px ;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+            h4{
+                font-size: 24px;
+                color: map-get($colors, detalles-2);
+            }
+        }
     }
 }

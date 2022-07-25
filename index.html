@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href='https://css.gg/css' rel='stylesheet'>
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Mates</title>
 </head>
@@ -19,19 +20,32 @@
         </div>
     </header>
     <nav class="navegation">
-        <ul>
-            <li>
-                <a href="#inicio">Inicio</a>
-            </li>
-            <li>
-                <a href="#productos">Productos</a>
-            </li>
-            <li>
-                <a href="#carrito">Carrito</a>
-            </li>
-            
-
-        </ul>
+        <a href="#" class="btn-nav">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li>
+                    <a href="#inicio">Inicio</a>
+                </li>
+                <li>
+                    <a href="#productos">Productos</a>
+                </li>
+                <li>
+                    <a href="#carrito">Carrito</a>
+                </li>
+                <li>
+                    <div class="sesion">
+                        <i class="gg-user"></i>
+                        <a id="login" class="btn-inicio" href="./pages/login.html">Iniciar sesión</a>
+                    </div>
+                </li>
+    
+            </ul>
+        </div>
+        
     </nav>
     <main>
         <section>
@@ -53,9 +67,9 @@
             <h2>Carrito</h2>
             <div class="contenedor-compras">
                 <div id="carrito" class="productos_carrito">
-                    
+
                 </div>
-    
+
                 <div class="total">
                     <div class="calcular">
                         <div id="calculo"> </div>
@@ -64,20 +78,25 @@
                     </div>
 
                     <p>Selecciona la cantidad de cuotas</p>
-                    
+
                     <div class="cuotas">
                         <input id="cuotas" type="number" placeholder="  max. 12">
                         <button id="pagar" class="btn-pagar" type="button">Pagar</button>
                     </div>
                     <div id="contenedor_cuotas"></div>
-                    
+
                 </div>
             </div>
-            
+
         </section>
 
     </main>
     <footer>
+        <div class="footerContainer">
+            <h4>Mates</h4>
+            
+            <p>Seguinos en nuestras redes:</p>
+        </div>
     </footer>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
