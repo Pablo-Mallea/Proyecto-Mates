@@ -63,7 +63,7 @@ validarRegistro.onclick = (event) => {
         });
 
     }else {
-        //------ Registro el nuevo usuario ---------------
+        //--------- Registro el nuevo usuario ----------
 
         let passwordIdCheck = document.getElementById("passwordIdCheck").value;
 
@@ -93,7 +93,7 @@ validarRegistro.onclick = (event) => {
     }
 }
 
-//-------- navbar responsive ----------
+//---------- navbar responsive -----------
 let btnNav = document.getElementsByClassName("btn-nav")[0];
 let navLinks = document.getElementsByClassName("navbar-links")[0];
 

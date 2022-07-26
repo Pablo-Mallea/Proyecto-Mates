@@ -7,8 +7,8 @@
 @media (min-width: 300px) and (max-width: 991px) {
   #grid {
     display: grid;
-    grid-template-areas: "header" "nav" "main" "footer";
-    grid-template-rows: auto auto auto 150px;
+    grid-template-areas: "header" "nav" "main" "footer";
+    grid-template-rows: auto;
     grid-template-columns: auto; }
   .notificacion {
     background: #6B9080;
@@ -22,7 +22,7 @@
 @media (min-width: 992px) {
   #grid {
     display: grid;
-    grid-template-areas: "header" "nav" "main" "footer";
+    grid-template-areas: "header" "nav" "main" "footer";
     grid-template-rows: auto auto auto 150px;
     grid-template-columns: auto; }
   .notificacion {
@@ -677,15 +677,39 @@ body {
     grid-area: footer;
     background-color: #fff; }
     footer .footerContainer {
-      height: 100%;
-      padding: 0 150px;
+      height: auto;
+      padding: 0 50px;
       display: flex;
       flex-flow: column nowrap;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center; }
       footer .footerContainer h4 {
         font-size: 24px;
-        color: #6B9080; } }
+        color: #6B9080;
+        margin-top: 5px; }
+      footer .footerContainer .contacto {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 10px 0; }
+        footer .footerContainer .contacto h5 {
+          font-size: 18px; }
+      footer .footerContainer .redes {
+        height: 75%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 10px; }
+        footer .footerContainer .redes .footer-img {
+          width: 30px;
+          height: 30px;
+          padding-top: 5px; }
+          footer .footerContainer .redes .footer-img img {
+            width: 100%;
+            height: 100%; } }
 
 @media (min-width: 992px) {
   header {
@@ -755,6 +779,8 @@ body {
       color: #6B9080; }
     main .compras {
       margin: 15px 0; }
+    main #cerrarSesion {
+      color: #6B9080; }
   footer {
     grid-area: footer;
     background-color: #fff; }
@@ -766,5 +792,27 @@ body {
       justify-content: space-between;
       align-items: center; }
       footer .footerContainer h4 {
+        width: 230px;
         font-size: 24px;
-        color: #6B9080; } }
+        color: #6B9080; }
+      footer .footerContainer .contacto {
+        height: 75%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center; }
+        footer .footerContainer .contacto h5 {
+          font-size: 18px; }
+      footer .footerContainer .redes {
+        height: 75%;
+        width: 230px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center; }
+        footer .footerContainer .redes .footer-img {
+          width: 30px;
+          height: 30px; }
+          footer .footerContainer .redes .footer-img img {
+            width: 100%;
+            height: 100%; } }

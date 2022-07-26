@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Login</title>
 </head>
+
 <body id="grid">
     <header id="inicio">
         <div class="portada">
@@ -40,20 +42,20 @@
                         <a id="login" class="btn-inicio" href="#">Iniciar sesión</a>
                     </div>
                 </li>
-    
+
             </ul>
         </div>
-        
+
     </nav>
     <main>
-        <section >
+        <section>
             <h2>Inicio de Sesión</h2>
             <div class="inicioSesion">
                 <div class="inicio">
                     <h3>Inicio</h3>
                     <form>
                         <div>
-                            <p>Mail</p>
+                            <p>Correo</p>
                             <input id="user" type="text" placeholder="Ingrese su mail" required>
                         </div>
                         <div>
@@ -65,33 +67,33 @@
                         </div>
                     </form>
                 </div>
-                
+
                 <div class="registro">
                     <h3>Registro</h3>
-    
-                    <form >
+
+                    <form>
                         <div>
                             <p>Nombre y Apellido</p>
                             <input id="userId" type="text" placeholder="Ingrese su Nombre" required>
                         </div>
                         <div>
-                            <p>Mail: </p>
+                            <p>Correo</p>
                             <input id="mail" type="text" placeholder="...@mail.com" required>
                         </div>
                         <div>
                             <p>Dirección</p>
                             <div class="direccion">
-                                <input id="calle" type="text" placeholder="Calle">
-                                <input id="altura" type="text" placeholder="Altura">
+                                <input id="calle" type="text" placeholder="Calle" required>
+                                <input id="altura" type="text" placeholder="Altura" required>
                                 <input id="piso" type="text" placeholder="Piso (Opcional)">
                             </div>
                         </div>
                         <div>
                             <p>Contraseña</p>
-                            <input id="passwordId" type="password" placeholder="min 4 caracteres" required>
+                            <input id="passwordId" type="password" placeholder="Contraseña" required>
                             <input id="passwordIdCheck" type="password" placeholder="Confirmar contraseña" required>
                         </div>
-                        
+
                         <div>
                             <button id="validarRegistro" type="submit" class="btn-ingreso">Registrar</button>
                         </div>
@@ -101,10 +103,26 @@
         </section>
     </main>
     <footer>
+        <div class="footerContainer">
+            <h4>Mates</h4>
 
+            <div class="contacto">
+                <h5>Contacto</h5>
+                <p>mates@gmail.com</p>
+                <p>+54 01112345</p>
+            </div>
+
+            <div class="redes">
+                <p>Seguinos en nuestras redes:</p>
+                <div class="footer-img">
+                    <img src="../assets/img/logotipo-de-instagram.png" alt="instagram">
+                </div>
+            </div>
+        </div>
     </footer>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../assets/js/sesion.js"></script>
 </body>
+
 </html>
