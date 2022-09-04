@@ -50,7 +50,7 @@ const cargoProductos = async () => {
                 <p>${productos.name}</p>
                 <p>$ ${productos.precio}</P>
                 <div class="flex-row">
-                    <input type="number" id="cant${productos.id}" placeholder="cantididad"> 
+                    <input type="number" id="cant${productos.id}" placeholder="cantididad" min="1">
                     <button class="btn-comprar" onClick="seleccionProductos(${productos.id})">Comprar</button>
                 </div>
             </div>
